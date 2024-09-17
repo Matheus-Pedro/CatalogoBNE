@@ -22,7 +22,7 @@
         </ul>
       </nav>
       <div class="header-block">
-        <video class="video-header" src="images/broll-header.mp4" type="video/mp4" alt="broll" autoplay></video>
+        <video class="video-header" src="images/broll-header.mp4" type="video/mp4" alt="broll" autoplay muted loop></video>
       </div>
     </div>
   </header>
@@ -38,7 +38,13 @@
       </div>
       <div class="card-wrapper">
 
-        <div class="card-item">
+        <button class="addPostModal" onclick="openAddPostModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+          </svg><p>Adicionar Suplemento</p></button>
+
+          <!-- <div class="card-item">
           <img src="images/growth.png" alt="Car" />
           <div class="card-content">
             <h3>Growth</h3>
@@ -48,55 +54,7 @@
             <button type="button">Eu quero isso!</button>
           </div>
         </div>
-
-        <div class="card-item">
-          <img src="images/integral.png" alt="Car" />
-          <div class="card-content">
-            <h3>Integral</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus.
-            </p>
-            <button type="button">Eu quero isso!</button>
-          </div>
-        </div>
-
-        <div class="card-item">
-          <img src="images/dark-lab.png" alt="Car" />
-          <div class="card-content">
-            <h3>Dark Lab</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus.
-            </p>
-            <button type="button">Eu quero isso!</button>
-          </div>
-        </div>
-
-        <div class="card-item">
-          <img src="images/probiotica.png" alt="Car" />
-          <div class="card-content">
-            <h3>Probiotica</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus.
-            </p>
-            <button type="button">Eu quero isso!</button>
-          </div>
-        </div>
-
-        <div class="card-item">
-          <img src="images/black-skull.png" alt="Car" />
-          <div class="card-content">
-            <h3>Black Skull</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus.
-            </p>
-            <button type="button">Eu quero isso!</button>
-          </div>
-        </div>
-        
+         -->
 
       </div>
     </div>
@@ -194,6 +152,34 @@
       </div>
     </div>
   </section>
+<!-- Modal de Adição -->
+<div id="addPostModal" class="modal">
+  <div class="form-modal">
+  <form id="addPostForm">
+    <input type="text" id="postTitle" placeholder="Marca do Suplemento" />
+    <input type="text" id="postDescription" placeholder="Descrição do Suplemento" />
+    <input type="text" id="postImage" placeholder="URL da Imagem" />
+    <button type="button" onclick="saveNewPost()">Salvar</button>
+    <button type="button" onclick="closeAddPostModal()">Cancelar</button>
+  </form>
+</div>
+</div>
+
+<!-- Modal de Edição -->
+<div id="editPostModal" class="modal">
+  <div class="form-modal">
+  <input type="hidden" id="editItemId" />
+  <input type="text" id="editTitle" placeholder="Novo título" />
+  <input type="text" id="editDescription" placeholder="Nova descrição" />
+  <input type="text" id="editImage" placeholder="Novo caminho da imagem" />
+  <button type="button" onclick="saveEditPost()">Salvar Edição</button>
+  <button type="button" onclick="deleteItem()">Deletar Item</button>
+  <button type="button" onclick="closeEditPostModal()">Cancelar</button>
+  </div>
+</div>
+
+<!-- Modal de Mensagem -->
+<div id="modalMessage" class="modal-message"></div>
 
   <footer>
     <div class="main">
@@ -245,7 +231,6 @@
         </div>
         <div class="footer-contact">
           <h4>Contact US</h4>
-          <h6>+55 31 988776655</h6>
           <h6>contato@flexforge.com.br</h6>
           <h6>Nome da Rua, belo horizonte MG</h6>
         </div>
@@ -254,5 +239,7 @@
     <div class="last">Matheus Caprioli 2024 - Use like you want</div>
   </footer>
 </body>
+
+<script src="js/script.js"></script>
 
 </html>
